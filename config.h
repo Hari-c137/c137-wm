@@ -18,7 +18,7 @@ static const float urgentcolor[]           = COLOR(0xff0000ff);
 static const float fullscreen_bg[]         = {0.1f, 0.1f, 0.1f, 1.0f}; /* You can also use glsl colors */
 
 /* tagging - TAGCOUNT must be no greater than 31 */
-#define TAGCOUNT (9)
+#define TAGCOUNT (6)
 
 /* logging */
 static int log_level = WLR_ERROR;
@@ -26,8 +26,8 @@ static int log_level = WLR_ERROR;
 /* Autostart */
 static const char *const autostart[] = {
         "foot", "--server", NULL,
-        "wbg", "/home/x137/pics/1", NULL,
-        "yambar", NULL,
+        "swaybg", "-m",  "fill", "-i", "/home/x137/pics/1", NULL,
+        "i3status-rust", NULL,
         "/usr/libexec/xfce-polkit", NULL,
 
         NULL /* terminate */
@@ -141,7 +141,8 @@ static const Key keys[] = {
 	/* modifier                  key                 function        argument */
 	{ MODKEY,                    XKB_KEY_p,          spawn,          {.v = menucmd} },
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
-  { MODKEY,                    XKB_KEY_v,          spawn,          SHCMD("$HOME/code/dumb_shit/bash/rand_wall.sh") },
+  { MODKEY,                    XKB_KEY_v,          spawn,          SHCMD("$HOME/code/dumb_shit/bash/random_wallpaper.sh") },
+  { MODKEY,                    XKB_KEY_n,          spawn,          SHCMD("$HOME/code/dumb_shit/bash/copy_key.sh") },
   { MODKEY,                    XKB_KEY_b,          togglebar,      {0} },
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
